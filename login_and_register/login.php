@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 // Inicio de sesión exitoso
                 // Redirige al usuario a otra página
                 echo "<script>alert('Inicio de sesión exitoso');</script>";
-                header("Location: index.html");
+                header("Location: inicio_web/index.html");
                 exit(); // Asegura que el script se detenga después de la redirección
             } else {
                 echo "<script>alert('Contraseña incorrecta');</script>";

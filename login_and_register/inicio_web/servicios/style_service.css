@@ -1,0 +1,54 @@
+body {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+      
+  background-image: url("background.jpg");
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-position: center; /* Centra la imagen */
+  }
+  .container {
+    display: flex;
+  }
+  .panel {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+  .section {
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    margin-top: 0;
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: #0056b3;
+  }
+  .disabled {
+    background-color: #ddd !important;
+    cursor: not-allowed;
+  }
+  #precioBloque {
+    margin-top: 20px;
+  }
