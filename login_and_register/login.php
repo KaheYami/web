@@ -72,9 +72,11 @@
 
 
 <?php
+session_start(); // Iniciar la sesión
+
 $pass = ""; // Tu contraseña de base de datos
 $username = "edgar"; // Tu nombre de usuario de base de datos
-$DB = "credenciales"; // Tu nombre de base de datos
+$DB = "wenssen"; // Tu nombre de base de datos
 
 // Verifica si se envió el formulario de registro
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
@@ -135,9 +137,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             // Verifica si la contraseña proporcionada coincide con la almacenada en la base de datos
             if (password_verify($password, $row['contraseña'])) {
                 // Inicio de sesión exitoso
+                // Almacena el ID del usuario en una variable de sesión
+                $_SESSION['user_id'] = $row['ID_usuario'];
                 // Redirige al usuario a otra página
                 echo "<script>alert('Inicio de sesión exitoso');</script>";
-                header("Location: inicio_web/index.html");
+                header("Location: inicio_web/inicio.php");
                 exit(); // Asegura que el script se detenga después de la redirección
             } else {
                 echo "<script>alert('Contraseña incorrecta');</script>";
@@ -151,3 +155,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     }
 }
 ?>
+
