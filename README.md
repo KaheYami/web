@@ -9,9 +9,15 @@ Para desarrollar y probar localmente esta página, necesitarás tener instalado 
 Ve al sitio web de Apache Friends y descarga la versión de XAMPP adecuada para tu sistema operativo.
 Ejecuta el programa de instalación y sigue las instrucciones para instalar XAMPP en tu sistema.
 Inicia el panel de control de XAMPP y arranca los servicios necesarios, Apache y MySQL.
+luego deberas descarga el archivo PDF base_de_datos.pdf donde tendras en codigo SQL para montar la BD.
+
 4. Configuración del proyecto
-Copia los archivos de tu aplicación web en la carpeta htdocs dentro de la carpeta de instalación de XAMPP.
 Accede a tu servidor local abriendo tu navegador y visitando http://localhost.
+En XAMPP usando apache y sql deberas acceder al administrador del SQL para crear una BD con el nombre que quieras y copia el codigo SQL del archivo PDF base_de_datos.pdf para crear las tablas dentro de tu BD. Ahora copia los archivos de tu aplicación web en la carpeta htdocs dentro de la carpeta de instalación de XAMPP.
+podras acceder a tu pagina web con el siguiente enlace:
+http://localhost/web/login_and_register/login.php
+
 5. Funcionalidades de la página de Eloboost
 login and register: te permite crear un usuario y a tambien logearte con este usuario.
 eloboost: Los usuarios pueden elegir de que elo a que elo para realizar su pedido.
+compra de servicio: Podras hacer pedidos de eloboost tanto para subir a una liga como para que te desiendan a una liga.
