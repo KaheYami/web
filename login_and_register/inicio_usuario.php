@@ -4,43 +4,14 @@
   <head> <!-- esto no se muestra al usuario -->
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Servicios</title>
+      <title>Wenssen</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   </head>
   <body><!-- esto si se muestra al usuario -->
     <h1 class="titulo">wensen</h1>
     <nav role="navigation">
-      <div id="menuToggle">
-        <input type="checkbox" />
-        <span></span>
-        <span></span>
-        <span></span>
-        <ul id="menu">
-          <li><a href="#" id="boosting">boosting</a>
-            <ul>
-              <li><a href="servicios/League_of_legends.html">leagueoflegends</a></li>
-              <li><a href="#">Submenu 2</a></li>
-              <li><a href="#">Submenu 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#" id="coaching">Coaching</a>
-            <ul>
-              <li><a href="#">Submenu 1</a></li>
-              <li><a href="#">Submenu 2</a></li>
-              <li><a href="#">Submenu 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#" id="Cuentas">Cuentas</a>
-            <ul>
-              <li><a href="#">Submenu 1</a></li>
-              <li><a href="#">Submenu 2</a></li>
-              <li><a href="#">Submenu 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
+      <i class="fas fa-user" id="user-icon"></i>
     </nav>
     <h2 id="servicios">Servicios para league of legends</h2>
     <div class="container">
@@ -60,21 +31,11 @@
     <!-- Aquí muestras el ID del usuario -->
     <p>ID de usuario: <?php echo $_SESSION['user_id']; ?></p>
 
-
-  </body>
-</html>
-
-<?php
-    // Código PHP aquí
-?>
-
-<body>
-    <!-- Código HTML aquí -->
-    <i class="fas fa-user" id="user-icon"></i>
-
     <script>
         document.getElementById('user-icon').addEventListener('click', function() {
             window.location.href = 'login.php';
         });
-    </script>
-</body>
+    </script> 
+  </body>
+</html>
+

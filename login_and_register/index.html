@@ -1,15 +1,16 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- representa el tipo de documento -->
 <html lang="es">
   <head> <!-- esto no se muestra al usuario -->
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Servicios</title>
+      <title>Inicio</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   </head>
   <body><!-- esto si se muestra al usuario -->
     <h1 class="titulo">wensen</h1>
     <nav role="navigation">
+      <i class="fas fa-user" id="user-icon"></i>
       <div id="menuToggle">
         <input type="checkbox" />
         <span></span>
@@ -42,7 +43,7 @@
         </ul>
       </div>
     </nav>
-    <h2 id="servicios">Servicios para league of legends</h2>
+    <h2 id="servicios">servicios</h2>
     <div class="container">
       <div class="box" >
           <span style="--i:1;"><img src="img/plata.webp"></span>
@@ -56,25 +57,12 @@
 
       </div>
     </div>
+    
+        <h2 id="experiencia">Testimonios y reseñas</h2>
 
-    <!-- Aquí muestras el ID del usuario -->
-    <p>ID de usuario: <?php echo $_SESSION['user_id']; ?></p>
-
-
-  </body>
-</html>
-
-<?php
-    // Código PHP aquí
-?>
-
-<body>
-    <!-- Código HTML aquí -->
-    <i class="fas fa-user" id="user-icon"></i>
-
-    <script>
-        document.getElementById('user-icon').addEventListener('click', function() {
-            window.location.href = 'login.php';
-        });
-    </script>
-</body>
+        <footer id="footer"> <!-- pie de pagina -->
+          <h2 id="FAQ">Preguntas frecuentes (FAQ)</h2>
+          <h2 id="Políticas_y_terminos">Políticas y términos</h2>
+        </footer>
+      </body>
+    </html>

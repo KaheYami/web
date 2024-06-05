@@ -75,8 +75,8 @@
 session_start(); // Iniciar la sesión
 
 $pass = ""; // Tu contraseña de base de datos
-$username = "edgar"; // Tu nombre de usuario de base de datos
-$DB = "wenssen"; // Tu nombre de base de datos
+$username = "gio"; // Tu nombre de usuario de base de datos
+$DB = "eloboost"; // Tu nombre de base de datos
 
 // Verifica si se envió el formulario de registro
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
@@ -96,9 +96,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         // Hash del password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         
+        // Genera un ID de usuario único
+        $ID_usuario = uniqid();
+        
         // Prepara la consulta SQL para insertar un nuevo usuario en la base de datos
-        $sql = $conn->prepare("INSERT INTO usuarios (usuario, correo, contraseña) VALUES (?, ?, ?)");
-        $sql->bind_param("sss", $username, $email, $hashed_password);
+        $sql = $conn->prepare("INSERT INTO usuarios (ID_usuario, Nombre_usuario, Correo_electronico, contraseña) VALUES (?, ?, ?, ?)");
+        $sql->bind_param("isss", $ID_usuario, $username, $email, $hashed_password);
         
         // Ejecuta la consulta
         if ($sql->execute() === TRUE) {
@@ -111,6 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         $conn->close();
     }
 }
+
 
 // Verifica si se envió el formulario de inicio de sesión
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
@@ -126,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $password = $_POST['password'];
         
         // Prepara la consulta SQL para buscar el usuario en la base de datos
-        $sql = $conn->prepare("SELECT * FROM usuarios WHERE correo=?");
+        $sql = $conn->prepare("SELECT * FROM usuarios WHERE Correo_electronico=?");
         $sql->bind_param("s", $email);
         $sql->execute();
         $result = $sql->get_result();
@@ -135,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             // Verifica si la contraseña proporcionada coincide con la almacenada en la base de datos
-            if (password_verify($password, $row['contraseña'])) {
+            if (password_verify($password, $row['Contraseña'])) {
                 // Inicio de sesión exitoso
                 // Almacena el ID del usuario en una variable de sesión
                 $_SESSION['user_id'] = $row['ID_usuario'];
