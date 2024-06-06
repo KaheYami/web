@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2024 a las 14:53:15
+-- Tiempo de generación: 06-06-2024 a las 19:21:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -80,6 +80,51 @@ INSERT INTO `booster` (`ID_booster`, `Nombre_booster`, `Apellido_booster`, `LV_s
 (8, 'Teresa', 'Sanchez', 12, 0),
 (9, 'Jose', 'Torres', 10, 0),
 (10, 'Isabel', 'Castro', 10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dificultad_servicio`
+--
+
+CREATE TABLE `dificultad_servicio` (
+  `Dificultad` varchar(50) NOT NULL,
+  `Servicio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dificultad_servicio`
+--
+
+INSERT INTO `dificultad_servicio` (`Dificultad`, `Servicio`) VALUES
+('Dificil', 19),
+('Dificil', 20),
+('Dificil', 21),
+('Dificil', 22),
+('Dificil', 23),
+('Dificil', 24),
+('Dificil', 25),
+('Dificil', 26),
+('Dificil', 27),
+('Dificil', 28),
+('Facil', 1),
+('Facil', 2),
+('Facil', 3),
+('Facil', 4),
+('Facil', 5),
+('Facil', 6),
+('Facil', 7),
+('Facil', 8),
+('Facil', 9),
+('Intermedio', 10),
+('Intermedio', 11),
+('Intermedio', 12),
+('Intermedio', 13),
+('Intermedio', 14),
+('Intermedio', 15),
+('Intermedio', 16),
+('Intermedio', 17),
+('Intermedio', 18);
 
 -- --------------------------------------------------------
 
@@ -330,7 +375,7 @@ INSERT INTO `pedidos` (`ID_pedido`, `ID_usuario`, `Fecha_pedido`, `Nivel_inicial
 --
 
 CREATE TABLE `rangos` (
-  `ID` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL,
   `rango` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -339,16 +384,79 @@ CREATE TABLE `rangos` (
 --
 
 INSERT INTO `rangos` (`ID`, `rango`) VALUES
-(1, 'hierro'),
-(2, 'bronce'),
-(3, 'plata'),
-(4, 'oro'),
-(5, 'platino'),
-(6, 'esmeralda'),
-(7, 'diamante'),
-(8, 'master'),
-(9, 'grandmaster'),
-(10, 'challenger');
+(1, 'Hierro IV'),
+(2, 'Hierro III'),
+(3, 'Hierro II'),
+(4, 'Hierro I'),
+(5, 'Bronce IV'),
+(6, 'Bronce III'),
+(7, 'Bronce II'),
+(8, 'Bronce I'),
+(9, 'Plata IV'),
+(10, 'Plata III'),
+(11, 'Plata II'),
+(12, 'Plata I'),
+(13, 'Oro IV'),
+(14, 'Oro III'),
+(15, 'Oro II'),
+(16, 'Oro I'),
+(17, 'Platino IV'),
+(18, 'Platino III'),
+(19, 'Platino II'),
+(20, 'Platino I'),
+(21, 'Diamante IV'),
+(22, 'Diamante III'),
+(23, 'Diamante II'),
+(24, 'Diamante I'),
+(25, 'Maestro'),
+(26, 'Gran Maestro'),
+(27, 'Challenger');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicios`
+--
+
+CREATE TABLE `servicios` (
+  `ID` int(11) NOT NULL,
+  `rango_inicial` int(11) NOT NULL,
+  `rango_final` int(11) NOT NULL,
+  `precio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `servicios`
+--
+
+INSERT INTO `servicios` (`ID`, `rango_inicial`, `rango_final`, `precio`) VALUES
+(1, 1, 2, 2500),
+(2, 2, 3, 3000),
+(3, 3, 4, 3500),
+(4, 4, 5, 4000),
+(5, 5, 6, 3300),
+(6, 6, 7, 3900),
+(7, 7, 8, 4200),
+(8, 8, 9, 4500),
+(9, 9, 10, 3800),
+(10, 10, 11, 4000),
+(11, 11, 12, 4800),
+(12, 12, 13, 5100),
+(13, 13, 14, 3400),
+(14, 14, 15, 3800),
+(15, 15, 16, 4200),
+(16, 16, 17, 6000),
+(17, 17, 18, 6300),
+(18, 18, 19, 6700),
+(19, 19, 20, 7500),
+(20, 20, 21, 10000),
+(21, 21, 22, 11500),
+(22, 22, 23, 13000),
+(23, 23, 24, 15000),
+(24, 24, 25, 40000),
+(25, 25, 26, 40000),
+(26, 26, 27, 60000),
+(27, 27, 28, 80000);
 
 -- --------------------------------------------------------
 
@@ -368,6 +476,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_usuario`, `Nombre_usuario`, `Contraseña`, `Correo_electronico`) VALUES
+(0, 'wensen', '$2y$10$tVIrX74vGjhP.uMZ.2M36uJycjHwAn8VugUAC9/mwlnFB02TkUPbO', 'edgar.santana@alumnos.uaysen.cl'),
 (1, 'Usuario1', 'Contraseña1', 'usuario1@ejemplo.com'),
 (2, 'Usuario2', 'Contraseña2', 'usuario2@ejemplo.com'),
 (3, 'Usuario3', 'Contraseña3', 'usuario3@ejemplo.com'),
@@ -397,7 +506,9 @@ INSERT INTO `usuarios` (`ID_usuario`, `Nombre_usuario`, `Contraseña`, `Correo_e
 (27, 'Usuario27', 'Contraseña27', 'usuario27@ejemplo.com'),
 (28, 'Usuario28', 'Contraseña28', 'usuario28@ejemplo.com'),
 (29, 'Usuario29', 'Contraseña29', 'usuario29@ejemplo.com'),
-(30, 'Usuario30', 'Contraseña30', 'usuario30@ejemplo.com');
+(30, 'Usuario30', 'Contraseña30', 'usuario30@ejemplo.com'),
+(66600, 'edgar', '$2y$10$iUlY1PsJWjir2weFVqKpfuOZwym7mhFv0PovDoab.SScPgy31JtQ.', 'edgarbkn321@gmail.com'),
+(666065, 'beylian', '$2y$10$HkjFdkHhyJn9WJQlwHopsuy0kx/qRt.5jwvOWDQJc4KEVHPDbQJBS', 'victor.ovando@alumnos.uaysen.cl');
 
 --
 -- Índices para tablas volcadas
@@ -430,10 +541,33 @@ ALTER TABLE `pedidos`
   ADD KEY `ID_usuario` (`ID_usuario`);
 
 --
+-- Indices de la tabla `rangos`
+--
+ALTER TABLE `rangos`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FK_servicios_rangos_inicial` (`rango_inicial`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`ID_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas

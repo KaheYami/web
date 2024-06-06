@@ -18,7 +18,7 @@
         <ul id="menu">
           <li><a href="#" id="boosting">boosting</a>
             <ul>
-              <li><a href="servicios/League_of_legends.html">leagueoflegends</a></li>
+              <li><a href="servicios/League_of_legends.php">leagueoflegends</a></li>
               <li><a href="#">Submenu 2</a></li>
               <li><a href="#">Submenu 3</a></li>
             </ul>
@@ -64,17 +64,3 @@
   </body>
 </html>
 
-<?php
-    // Código PHP aquí
-?>
-
-<body>
-    <!-- Código HTML aquí -->
-    <i class="fas fa-user" id="user-icon"></i>
-
-    <script>
-        document.getElementById('user-icon').addEventListener('click', function() {
-            window.location.href = 'login.php';
-        });
-    </script>
-</body>
