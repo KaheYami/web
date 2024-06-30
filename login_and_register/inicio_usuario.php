@@ -28,9 +28,6 @@
       </div>
     </div>
 
-    <!-- Aquí muestras el ID del usuario -->
-    <p>ID de usuario: <?php echo $_SESSION['user_id']; ?></p>
-
     <script>
         document.getElementById('user-icon').addEventListener('click', function() {
             window.location.href = 'login.php';

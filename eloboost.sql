@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2024 a las 11:48:57
+-- Tiempo de generación: 28-06-2024 a las 11:55:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -56275,13 +56275,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `ID_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32768;
+  MODIFY `ID_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23913;
 
 --
 -- AUTO_INCREMENT de la tabla `booster`
 --
 ALTER TABLE `booster`
-  MODIFY `ID_booster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `ID_booster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`

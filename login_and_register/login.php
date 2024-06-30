@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -93,15 +94,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         
-        // Hash del password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        
         // Genera un ID de usuario único
         $ID_usuario = uniqid();
         
         // Prepara la consulta SQL para insertar un nuevo usuario en la base de datos
-        $sql = $conn->prepare("INSERT INTO usuarios (ID_usuario, Nombre_usuario, Correo_electronico, contraseña) VALUES (?, ?, ?, ?)");
-        $sql->bind_param("isss", $ID_usuario, $username, $email, $hashed_password);
+        $sql = $conn->prepare("INSERT INTO usuarios (ID_usuario, Nombre_usuario, contraseña, Correo_electronico) VALUES (?, ?, ?, ?)");
+        $sql->bind_param("isss", $ID_usuario, $username, $password, $email);
         
         // Ejecuta la consulta
         if ($sql->execute() === TRUE) {
@@ -139,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             // Verifica si la contraseña proporcionada coincide con la almacenada en la base de datos
-            if (password_verify($password, $row['Contraseña'])) {
+            if ($password === $row['Contraseña']) { // Comparación sin hashing
                 // Inicio de sesión exitoso
                 // Almacena el ID del usuario en una variable de sesión
                 $_SESSION['user_id'] = $row['ID_usuario'];
@@ -159,4 +157,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     }
 }
 ?>
+
 
